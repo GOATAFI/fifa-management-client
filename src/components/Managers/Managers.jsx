@@ -18,7 +18,7 @@ const Managers = () => {
   }, []);
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto mt-5 mb-5">
       <h1 className="text-center text-4xl font-bold mb-8">Managers</h1>
       <table className="table table-compact w-full">
         <thead>
