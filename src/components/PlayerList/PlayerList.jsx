@@ -1,6 +1,5 @@
-import { Card, Button } from 'react-daisyui';
 import { useEffect, useState } from 'react';
-
+import Card from 'daisyui'
 function PlayerList() {
     const [players, setPlayers] = useState([]);
 

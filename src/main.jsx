@@ -13,6 +13,8 @@ import Leagues from './Pages/Leagues/Leagues';
 import Ucl from './Pages/Ucl/Ucl';
 import Epl from './Pages/Epl/Epl';
 import LaLiga from './Pages/LaLiga/LaLiga';
+import Login from './components/LoginLayout/Login';
+import Register from './components/LoginLayout/Register';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +55,14 @@ const router = createBrowserRouter([
     {
       path : "/laliga",
       element : <LaLiga></LaLiga>
+    },
+    {
+      path : '/login',
+      element : <Login></Login>
+    },
+    {
+      path : '/register',
+      element : <Register></Register>
     }
   ]
   },
