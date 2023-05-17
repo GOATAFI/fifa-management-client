@@ -11,9 +11,9 @@ function TeamsList() {
       .then(data => setTeams(data));
   }, []);
 
-  const handleAddTeamClick = () => {
-    navigate('/addteams');
-  };
+  // const handleAddTeamClick = () => {
+  //   navigate('/addteams');
+  // };
 
   const handleDeleteTeamClick = id => {
     fetch(`http://localhost:5000/teams/${id}`, {
@@ -42,15 +42,14 @@ function TeamsList() {
         </thead>
         <tbody>
           {teams.map(team => (
-            <tr>
-              <td>{team.Name}</td>
+            <tr key={team.Name}>
+              <td>
+              <Link to={`/teams/${team.Name.replace(/\s+/g, '-').toLowerCase()}`}>{team.Name}</Link>
+              </td>
               <td>{team.Owner}</td>
               <td>{team.Manager}</td>
               <td>{team.Captain}</td>
               <td>{team.NetWorth} Millions</td>
-              {/* <td>
-                <button onClick={() => handleDeleteTeamClick(team.id)}>Delete</button>
-              </td> */}
             </tr>
           ))}
         </tbody>

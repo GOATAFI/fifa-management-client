@@ -16,6 +16,7 @@ import LaLiga from './Pages/LaLiga/LaLiga';
 import Login from './components/LoginLayout/Login';
 import Register from './components/LoginLayout/Register';
 import Managers from './components/Managers/Managers';
+import TeamPage from './components/TeamPage/TeamPage';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
     {
       path: "/teams",
       element: <TeamsList></TeamsList>,
+      
+    },
+    {
+      path: "/teams/:teamName",
+      element: <TeamPage></TeamPage>
     },
     {
       path: "/addteams",
