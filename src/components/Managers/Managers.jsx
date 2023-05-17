@@ -23,7 +23,7 @@ const Managers = () => {
       <table className="table table-compact w-full">
         <thead>
           <tr>
-            <th>Mid</th>
+            <th>ID</th>
             <th>Name</th>
             <th>Age</th>
             <th>Nationality</th>
@@ -41,7 +41,7 @@ const Managers = () => {
               <td>{manager.Nationality}</td>
               <td>{manager.Club}</td>
               <td>{manager.Contract}</td>
-              <td>{manager.Salary}</td>
+              <td>{manager.Salary} Millions</td>
             </tr>
           ))}
         </tbody>

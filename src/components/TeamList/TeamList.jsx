@@ -28,40 +28,37 @@ function TeamsList() {
   };
 
   return (
-    <div>
-      <h2>Teams List</h2>
-      <table>
+    <div className="overflow-x-auto mt-5 mb-9">
+      <h1 className="text-center text-4xl font-bold mb-8">Teams List</h1>
+      <table className="table table-compact w-full">
         <thead>
           <tr>
-            <th>ID</th>
             <th>Name</th>
-            <th>League</th>
-            <th>Wins</th>
-            <th>Losses</th>
-            <th>Draws</th>
-            <th></th>
+            <th>Owner</th>
+            <th>Manager</th>
+            <th>Captain</th>
+            <th>Net Worth</th>
           </tr>
         </thead>
         <tbody>
           {teams.map(team => (
-            <tr key={team.id}>
-              <td>{team.id}</td>
-              <td>{team.name}</td>
-              <td>{team.league}</td>
-              <td>{team.wins}</td>
-              <td>{team.losses}</td>
-              <td>{team.draws}</td>
-              <td>
+            <tr>
+              <td>{team.Name}</td>
+              <td>{team.Owner}</td>
+              <td>{team.Manager}</td>
+              <td>{team.Captain}</td>
+              <td>{team.NetWorth} Millions</td>
+              {/* <td>
                 <button onClick={() => handleDeleteTeamClick(team.id)}>Delete</button>
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>
       </table>
       <div>
-        <Link to="/addteams">
+        {/* <Link to="/addteams">
           <button className="btn btn-secondary" onClick={handleAddTeamClick}>Add Teams</button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
