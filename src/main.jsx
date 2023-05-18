@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       element: <TeamPage></TeamPage>
     },
     {
-      path: "/addteams",
+      path: "/add-team",
       element: <AddTeamForm></AddTeamForm>
     },
     {

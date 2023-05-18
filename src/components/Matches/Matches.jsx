@@ -15,15 +15,39 @@ const Matches = () => {
     };
 
     const filteredMatches = matches.filter(match => {
+        if (!match) {
+          return false;
+        }
+        
         const searchRegex = new RegExp(searchTerm, 'i');
         return (
-            searchRegex.test(match.Home_Team) ||
-            searchRegex.test(match.Away_Team) ||
-            searchRegex.test(match.League) ||
-            searchRegex.test(match.DateTime) ||
-            searchRegex.test(match.Match_Stage)
+          searchRegex.test(match.Home_Team) ||
+          searchRegex.test(match.Away_Team) ||
+          searchRegex.test(match.League) ||
+          searchRegex.test(match.DateTime) ||
+          searchRegex.test(match.Match_Stage)
         );
-    });
+      });
+      
+
+    //   const handleDelete = match_id => {
+    //     console.log('Deleting match with ID:', match_id);
+    //     // Delete the match from the database
+    //     fetch(`http://localhost:5000/matches/${match_id}`, { method: 'DELETE' })
+    //       .then(response => {
+    //         if (!response.ok) {
+    //           throw new Error('Failed to delete the match.');
+    //         }
+    //         // Update the state to remove the match client-side
+    //         setMatches(prevMatches => prevMatches.filter(match => match.id !== match_id));
+    //       })
+    //       .catch(error => {
+    //         console.error(error);
+    //         // Show an error message to the user or handle the error appropriately
+    //       });
+    //   };
+      
+      
 
     return (
         <div className="overflow-x-auto mt-5 mb-5">
@@ -59,7 +83,7 @@ const Matches = () => {
                 </thead>
                 <tbody>
                     {filteredMatches.map(match => (
-                        <tr>
+                        <tr key={match.match_id}>
                             <td>{match.DateTime}</td>
                             <td>{match.Home_Team}</td>
                             <td>{match.Away_Team}</td>

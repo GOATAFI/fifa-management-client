@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import AddTeamForm from '../AddTeamForm/AddTeamForm';
 
 function TeamPage() {
   const { teamName } = useParams();
   const [teamData, setTeamData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:5000/teams/${teamName}`)
@@ -21,13 +23,20 @@ function TeamPage() {
     return (
       searchRegex.test(player.PName) ||
       searchRegex.test(player.Position) ||
-      searchRegex.test(player.Age) ||
       searchRegex.test(player.Nationality) ||
       searchRegex.test(player.Jersey_Num) ||
       searchRegex.test(player.Salary) ||
       searchRegex.test(player.Contract)
     );
   });
+
+  const handleFormSubmit = formData => {
+    // Submit the form data to the server or perform any necessary actions
+    // Update the teamData state to include the new team data
+
+    // Example update: add the new team data to the teamData state
+    setTeamData(prevData => [...prevData, formData]);
+  };
 
   return (
     <div className="overflow-x-auto mt-5 mb-9">
@@ -67,6 +76,8 @@ function TeamPage() {
           ))}
         </tbody>
       </table>
+      <button className="btn btn-secondary" onClick={() => navigate('/add-team')}>Add Team</button>
+      <AddTeamForm onFormSubmit={handleFormSubmit} />
     </div>
   );
 }
