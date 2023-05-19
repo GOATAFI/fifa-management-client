@@ -4,7 +4,7 @@ import './index.css'
 import TeamsList from './components/TeamList/TeamList.jsx'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from './components/Main/Main';
-import AddTeamForm from './components/AddTeamForm/AddTeamForm';
+// import AddTeamForm from './components/AddTeamForm/AddTeamForm';
 import PlayerList from './components/PlayerList/PlayerList';
 import Header from './components/Header/Header';
 import MainPage from './Pages/MainPage/MainPage';
@@ -35,10 +35,10 @@ const router = createBrowserRouter([
       path: "/teams/:teamName",
       element: <TeamPage></TeamPage>
     },
-    {
-      path: "/add-team",
-      element: <AddTeamForm></AddTeamForm>
-    },
+    // {
+    //   path: "/add-team",
+    //   element: <AddTeamForm></AddTeamForm>
+    // },
     {
       path: "/players",
       element: <PlayerList></PlayerList>
